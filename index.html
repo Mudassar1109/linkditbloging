@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linkdit - Premium Software Discovery, Deals, Open Source, and Reviews.">
+    <title>Linkdit | Software Discovery & Deals</title>
+    
+    <!-- SEO and Open Graph Placeholders -->
+    <link rel="canonical" id="canonical-url" href="https://linkdit.example.com/">
+    <meta property="og:title" id="og-title" content="Linkdit | Software Discovery">
+    <meta property="og:description" id="og-desc" content="Discover premium software, open-source tools, and deals.">
+    <meta property="og:image" id="og-image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" id="og-type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Placeholder -->
+    <script type="application/ld+json" id="json-ld"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#/" class="logo">Link<span>dit</span>.</a>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#/" class="nav-item">Home</a></li>
+                    <li><a href="#/category/Deals" class="nav-item">Deals</a></li>
+                    <li><a href="#/category/Open Source" class="nav-item">Open Source</a></li>
+                    <li><a href="#/category/Reviews" class="nav-item">Reviews</a></li>
+                    <li><a href="#/about" class="nav-item">About</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <form class="search-form" id="search-form" role="search">
+                        <input type="search" id="search-input" placeholder="Search..." aria-label="Search articles" required>
+                        <button type="submit" aria-label="Submit Search">🔍</button>
+                    </form>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Theme">☀️</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Header AdSense Placeholder -->
+    <div class="container ad-container">
+        <div class="ad-placeholder header-ad">
+            <span>AdSense Leaderboard Placeholder (728x90)</span>
+            <!-- AdSense Code Snippet goes here -->
+        </div>
+    </div>
+
+    <div class="container layout-container">
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content" tabindex="-1">
+            <!-- Dynamically injected via JavaScript -->
+        </main>
+
+        <!-- Sidebar Area -->
+        <aside id="sidebar" class="sidebar">
+            <!-- Sidebar AdSense Placeholder -->
+            <div class="ad-placeholder sidebar-ad">
+                <span>AdSense Sidebar Placeholder (300x250)</span>
+                <!-- AdSense Code Snippet goes here -->
+            </div>
+
+            <div class="widget">
+                <h3>About Linkdit</h3>
+                <p>Your premier destination for discovering the best software, in-depth reviews, open-source alternatives, and verified lifetime deals.</p>
+                <a href="#/about" class="read-more">Learn more →</a>
+            </div>
+
+            <div class="widget">
+                <h3>Popular Posts</h3>
+                <ul class="popular-posts-list" id="popular-posts-list">
+                    <!-- Injected via JavaScript -->
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3>Categories</h3>
+                <ul class="category-list">
+                    <li><a href="#/category/Deals">Deals</a></li>
+                    <li><a href="#/category/Open Source">Open Source</a></li>
+                    <li><a href="#/category/Reviews">Reviews</a></li>
+                </ul>
+            </div>
+            
+            <div class="widget">
+                <h3>Admin</h3>
+                <p class="text-sm muted">Local demo dashboard.</p>
+                <a href="#/admin" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: 10px;">Admin Panel</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer AdSense Placeholder -->
+    <div class="container ad-container">
+        <div class="ad-placeholder footer-ad">
+            <span>AdSense Footer Placeholder (728x90)</span>
+            <!-- AdSense Code Snippet goes here -->
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h2>Link<span>dit</span>.</h2>
+                <p>Discover, compare, and save on the best software tools for creators, developers, and businesses.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#/privacy">Privacy Policy</a></li>
+                    <li><a href="#/terms">Terms of Service</a></li>
+                    <li><a href="#/disclaimer">Disclaimer</a></li>
+                    <li><a href="#/affiliate">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Get the latest open-source finds and software deals directly in your inbox.</p>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+                <p id="newsletter-msg" class="form-msg"></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Linkdit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
