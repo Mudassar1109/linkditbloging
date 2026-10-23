@@ -1,783 +1,638 @@
-// --- 1. DEFAULT DATA (12 Sample Articles) ---
-const defaultArticles = [
-    {
-        id: "1",
-        slug: "best-open-source-video-editors-2026",
-        title: "Top 5 Open Source Video Editors in 2026",
-        category: "Open Source",
-        excerpt: "Discover the most powerful free and open-source video editing software for content creators this year.",
-        content: `
-            <p>Video editing no longer requires an expensive subscription. The open-source community has developed powerful alternatives that rival industry standards.</p>
-            <h3>1. Kdenlive</h3>
-            <p>Kdenlive remains a top choice for Linux and Windows users, offering multi-track editing and numerous effects.</p>
-            <h3>2. Shotcut</h3>
-            <p>Known for its wide format support, Shotcut is perfect for users who need cross-platform compatibility.</p>
-            <h3>3. Blender</h3>
-            <p>While primarily a 3D creation suite, Blender's built-in Video Sequence Editor is incredibly powerful for advanced users.</p>
-            <!-- AdSense Placeholder inside content -->
-            <div class="ad-placeholder content-ad"><span>AdSense In-Article Placeholder</span></div>
-            <h3>4. Olive</h3>
-            <p>A fast, non-linear editor that is gaining rapid popularity for its performance.</p>
-            <h3>5. OpenShot</h3>
-            <p>Great for beginners, OpenShot provides an intuitive interface without overwhelming the user.</p>
-        `,
-        date: "2026-10-20",
-        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["video", "editing", "foss"],
-        popularity: 95,
-        published: true
-    },
-    {
-        id: "2",
-        slug: "affinity-designer-2-review",
-        title: "Affinity Designer 2: Comprehensive Review",
-        category: "Reviews",
-        excerpt: "Is Affinity Designer 2 the ultimate Adobe Illustrator killer? We dive deep into the new features.",
-        content: `
-            <p>Since its release, Affinity Designer 2 has promised a subscription-free future for vector graphics professionals. In this review, we examine if it delivers.</p>
-            <h3>New Features</h3>
-            <p>The updated node tool and shape builder bring significant quality-of-life improvements. The interface feels refined, and performance on M-series Macs is stellar.</p>
-            <h3>Pros and Cons</h3>
-            <p><strong>Pros:</strong> No subscription, lightning-fast, excellent iPad companion app.</p>
-            <p><strong>Cons:</strong> Lacks some niche tools found in Illustrator, file compatibility can sometimes be a hurdle with external agencies.</p>
-            <h3>Verdict</h3>
-            <p>For 90% of designers, Affinity Designer 2 is more than capable. It earns a solid 4.5/5 from us.</p>
-        `,
-        date: "2026-10-18",
-        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["design", "vector", "software"],
-        popularity: 88,
-        published: true
-    },
-    {
-        id: "3",
-        slug: "github-copilot-pro-promo",
-        title: "GitHub Copilot Pro Promotion",
-        category: "Deals",
-        excerpt: "Grab an extended trial of GitHub Copilot Pro. See details on how to claim this developer deal.",
-        content: `
-            <p>Boost your coding efficiency with this illustrative promotional deal for GitHub Copilot Pro. This AI pair programmer helps you write code faster and with less work.</p>
-            <p>Below are the details of the offer.</p>
-        `,
-        date: "2026-10-15",
-        image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["development", "ai", "github"],
-        popularity: 92,
-        published: true,
-        dealSourceUrl: "https://github.example.com/promo",
-        dealStart: "2026-10-01",
-        dealExpiry: "2026-11-30",
-        dealPlatforms: "VS Code, JetBrains, Visual Studio",
-        dealVerificationDate: "2026-10-15",
-        dealInclusions: "60-day extended trial, Access to GPT-4 based models",
-        dealLimitations: "New subscribers only. Valid payment method required.",
-        isIllustrative: true
-    },
-    {
-        id: "4",
-        slug: "nextcloud-hub-setup-guide",
-        title: "Setting up Nextcloud Hub: The Ultimate FOSS Cloud",
-        category: "Open Source",
-        excerpt: "Take back control of your data. Learn how to deploy Nextcloud Hub on your own server.",
-        content: "<p>Nextcloud has evolved from a simple file sync tool into a complete collaboration platform. In this guide, we'll walk you through a Docker-based installation.</p><p>First, ensure you have Docker and Docker Compose installed...</p>",
-        date: "2026-10-10",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["self-hosting", "cloud", "foss"],
-        popularity: 75,
-        published: true
-    },
-    {
-        id: "5",
-        slug: "bitwarden-vs-1password",
-        title: "Bitwarden vs 1Password: 2026 Comparison",
-        category: "Reviews",
-        excerpt: "Which password manager reigns supreme? We compare security, UI, and pricing.",
-        content: "<p>Choosing a password manager is crucial. Bitwarden offers incredible open-source value, while 1Password provides a highly polished experience.</p><p>We compare them across usability, security audits, and sharing features.</p>",
-        date: "2026-10-05",
-        image: "https://images.unsplash.com/photo-1614064641913-6b71a30a5015?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["security", "passwords", "comparison"],
-        popularity: 89,
-        published: true
-    },
-    {
-        id: "6",
-        slug: "adobe-creative-cloud-student",
-        title: "Adobe Creative Cloud Student Discount",
-        category: "Deals",
-        excerpt: "Save up to 60% on Adobe Creative Cloud with a valid student ID.",
-        content: "<p>Students and teachers can get the entire collection of Adobe creative apps at a massive discount. This is a standard illustrative educational offer.</p>",
-        date: "2026-09-28",
-        image: "https://images.unsplash.com/photo-1558655146-d09347e92766?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["design", "adobe", "education"],
-        popularity: 80,
-        published: true,
-        dealSourceUrl: "https://adobe.example.com/student",
-        dealStart: "2026-01-01",
-        dealExpiry: "2026-12-31",
-        dealPlatforms: "Windows, macOS, iPadOS",
-        dealVerificationDate: "2026-10-01",
-        dealInclusions: "All CC apps (Photoshop, Illustrator, Premiere, etc.), 100GB Cloud Storage",
-        dealLimitations: "Requires valid .edu email or proof of enrollment.",
-        isIllustrative: true
-    },
-    {
-        id: "7",
-        slug: "penpot-figma-alternative",
-        title: "Penpot: The Open Source Figma Alternative",
-        category: "Open Source",
-        excerpt: "Designers are migrating to Penpot. Here is why this open-source design tool matters.",
-        content: "<p>Since Adobe's attempt to acquire Figma, the community has rallied behind Penpot. Built on web standards (SVG), Penpot ensures you truly own your design files.</p>",
-        date: "2026-09-20",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["ui", "ux", "design", "foss"],
-        popularity: 82,
-        published: true
-    },
-    {
-        id: "8",
-        slug: "brave-browser-review",
-        title: "Brave Browser Review: Privacy by Default?",
-        category: "Reviews",
-        excerpt: "Is Brave still the best privacy-focused browser in 2026? Let's test its limits.",
-        content: "<p>Brave promises speed and privacy by blocking trackers natively. We benchmarked it against Chrome and Firefox to see if the claims hold up.</p>",
-        date: "2026-09-15",
-        image: "https://images.unsplash.com/photo-1623282033815-40b05d96c903?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["browser", "privacy"],
-        popularity: 70,
-        published: true
-    },
-    {
-        id: "9",
-        slug: "nordvpn-black-friday-sample",
-        title: "NordVPN Black Friday Early Access",
-        category: "Deals",
-        excerpt: "Secure your internet connection with this illustrative Black Friday deal for NordVPN.",
-        content: "<p>VPNs are essential for public Wi-Fi security. This sample deal outlines typical Black Friday savings you might expect.</p>",
-        date: "2026-10-22",
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["vpn", "privacy", "security"],
-        popularity: 91,
-        published: true,
-        dealSourceUrl: "https://nordvpn.example.com/deal",
-        dealStart: "2026-10-20",
-        dealExpiry: "2026-11-30",
-        dealPlatforms: "All platforms",
-        dealVerificationDate: "2026-10-24",
-        dealInclusions: "2-year plan + 3 months free, Malware protection",
-        dealLimitations: "Only valid on new 2-year subscriptions.",
-        isIllustrative: true
-    },
-    {
-        id: "10",
-        slug: "linux-mint-23-overview",
-        title: "Linux Mint 23 Overview: The Perfect OS?",
-        category: "Open Source",
-        excerpt: "Linux Mint 23 arrives with immense polish. We explore the Cinnamon desktop updates.",
-        content: "<p>Linux Mint continues to be the gateway for Windows users moving to open source. The new release brings better Wayland support and a snappier software manager.</p>",
-        date: "2026-09-01",
-        image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["linux", "os", "foss"],
-        popularity: 65,
-        published: true
-    },
-    {
-        id: "11",
-        slug: "davinci-resolve-19-review",
-        title: "DaVinci Resolve 19 Real-World Review",
-        category: "Reviews",
-        excerpt: "Blackmagic's latest NLE update brings AI magic. We test it on a real documentary project.",
-        content: "<p>DaVinci Resolve Studio 19 integrates Neural Engine AI features that drastically cut down editing time. The voice isolation is particularly mind-blowing.</p>",
-        date: "2026-08-25",
-        image: "https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["video", "production", "review"],
-        popularity: 78,
-        published: true
-    },
-    {
-        id: "12",
-        slug: "webstorm-anniversary-promo",
-        title: "WebStorm 50% Off Anniversary Sale",
-        category: "Deals",
-        excerpt: "JetBrains is offering a massive discount on WebStorm for their anniversary. (Sample Deal)",
-        content: "<p>Elevate your JavaScript development with WebStorm. Grab this illustrative sample deal and enjoy top-tier IDE features.</p>",
-        date: "2026-08-15",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        tags: ["development", "ide", "javascript"],
-        popularity: 85,
-        published: true,
-        dealSourceUrl: "https://jetbrains.example.com/webstorm",
-        dealStart: "2026-08-10",
-        dealExpiry: "2026-08-31",
-        dealPlatforms: "Windows, macOS, Linux",
-        dealVerificationDate: "2026-08-15",
-        dealInclusions: "1-year personal license",
-        dealLimitations: "Not valid for commercial/organization licenses.",
-        isIllustrative: true
-    }
-];
+let supabase;
+let session = null;
+let isAdmin = false;
 
-// --- 2. STATE MANAGEMENT ---
-let articles = [];
-const ARTICLES_KEY = 'linkdit_articles';
-
-function loadArticles() {
-    const stored = localStorage.getItem(ARTICLES_KEY);
-    if (stored) {
-        articles = JSON.parse(stored);
-    } else {
-        articles = [...defaultArticles];
-        saveArticles();
-    }
-}
-
-function saveArticles() {
-    localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-}
-
-function resetDemoData() {
-    if(confirm("Are you sure you want to reset all data to the demo defaults?")) {
-        articles = [...defaultArticles];
-        saveArticles();
-        alert("Data reset successfully.");
-        window.location.reload();
-    }
-}
-
-// --- 3. ROUTER & RENDER ENGINE ---
+// DOM Elements
+const appContainer = document.getElementById('app-container');
 const mainContent = document.getElementById('main-content');
-let currentPage = 1;
-const POSTS_PER_PAGE = 6;
+const publicSidebar = document.getElementById('sidebar');
+const publicHeader = document.getElementById('public-header');
+const publicFooter = document.getElementById('public-footer');
+const themeToggle = document.getElementById('theme-toggle');
+const htmlEl = document.documentElement;
 
+// --- 1. INITIALIZATION & AUTH ---
+async function initApp() {
+    try {
+        // Fetch environment config securely from Vercel Serverless Function
+        const res = await fetch('/api/config');
+        if (!res.ok) throw new Error("Failed to load configuration.");
+        const config = await res.json();
+        
+        supabase = window.supabase.createClient(config.url, config.anonKey);
+        
+        // Restore session
+        const { data: { session: savedSession } } = await supabase.auth.getSession();
+        session = savedSession;
+        
+        if (session) {
+            await checkAdminStatus();
+        }
+
+        // Setup Auth Listener
+        supabase.auth.onAuthStateChange(async (event, currentSession) => {
+            session = currentSession;
+            if (session) {
+                await checkAdminStatus();
+            } else {
+                isAdmin = false;
+            }
+        });
+
+        initTheme();
+        handleRoute();
+        window.addEventListener('hashchange', handleRoute);
+        
+    } catch (error) {
+        mainContent.innerHTML = `<div class="empty-state"><h3>System Error</h3><p>Could not initialize application. Please check backend configuration.</p></div>`;
+        console.error(error);
+    }
+}
+
+async function checkAdminStatus() {
+    // Check if user is in admin_roles table securely via RLS
+    const { data, error } = await supabase.from('admin_roles').select('user_id').eq('user_id', session.user.id).single();
+    isAdmin = !!data;
+}
+
+// --- 2. ROUTER ---
 function handleRoute() {
     const hash = window.location.hash || '#/';
     const path = hash.split('?')[0].replace('#', '');
     const segments = path.split('/').filter(Boolean);
-    
-    // Scroll to top on route change
     window.scrollTo(0, 0);
 
-    // Update active nav state
+    // Close mobile nav
+    document.getElementById('main-nav').classList.remove('active');
+
+    // Admin Route Protection
+    if (segments[0] === 'admin') {
+        if (segments[1] === 'login') {
+            if (isAdmin) return window.location.hash = '#/admin/dashboard';
+            renderLogin();
+        } else {
+            if (!session || !isAdmin) return window.location.hash = '#/admin/login';
+            renderAdminDashboard(segments[1] || 'dashboard', segments[2]);
+        }
+        return;
+    }
+
+    // Public Routes
+    publicHeader.style.display = 'block';
+    publicFooter.style.display = 'block';
+    appContainer.style.display = 'grid';
+    
     document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
 
     if (segments.length === 0) {
         document.querySelector('a[href="#/"]').classList.add('active');
         renderHome();
     } else if (segments[0] === 'category') {
-        const cat = decodeURIComponent(segments[1]);
-        const navEl = document.querySelector(`a[href="#/category/${cat}"]`);
-        if(navEl) navEl.classList.add('active');
-        renderCategory(cat);
+        renderCategory(decodeURIComponent(segments[1]));
     } else if (segments[0] === 'post') {
         renderPost(segments[1]);
-    } else if (segments[0] === 'admin') {
-        renderAdmin();
     } else if (segments[0] === 'search') {
-        const query = decodeURIComponent(hash.split('?q=')[1] || '');
-        renderSearch(query);
+        renderSearch(decodeURIComponent(hash.split('?q=')[1] || ''));
     } else {
         renderStaticPage(segments[0]);
     }
-
-    renderSidebar();
-}
-
-// SEO & Metadata updates
-function updateMeta(title, description, urlSlug) {
-    document.title = `${title} | Linkdit`;
-    document.querySelector('meta[name="description"]').setAttribute("content", description);
     
-    document.getElementById('og-title').setAttribute("content", title);
-    document.getElementById('og-desc').setAttribute("content", description);
-    
-    const canonical = `https://linkdit.example.com/#/${urlSlug}`;
-    document.getElementById('canonical-url').setAttribute("href", canonical);
+    renderPublicSidebar();
 }
 
-function injectJSONLD(data) {
-    document.getElementById('json-ld').textContent = JSON.stringify(data);
+// --- 3. PUBLIC VIEWS (Reads from Supabase) ---
+async function renderHome() {
+    mainContent.innerHTML = '<p>Loading latest discoveries...</p>';
+    const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('status', 'published')
+        .order('published_at', { ascending: false })
+        .limit(10);
+        
+    if (error) {
+        mainContent.innerHTML = `<p class="muted">Error loading articles.</p>`;
+        return;
+    }
+    renderArticleList(data, "Latest Discoveries");
 }
 
-// --- 4. VIEWS ---
+async function renderCategory(cat) {
+    mainContent.innerHTML = `<p>Loading ${cat}...</p>`;
+    const { data, error } = await supabase
+        .from('articles')
+        .select('*, categories!inner(name)')
+        .eq('status', 'published')
+        .eq('categories.name', cat)
+        .order('published_at', { ascending: false });
+        
+    renderArticleList(data || [], cat);
+}
 
-// Render List of Articles (Reusable)
-function renderArticleList(filteredArticles, title, emptyMessage = "No articles found.") {
+function renderArticleList(articles, title) {
     let html = `<div class="page-header"><h1 style="font-size: 2rem;">${title}</h1></div>`;
     
-    if (filteredArticles.length === 0) {
-        html += `<p>${emptyMessage}</p>`;
+    if (!articles || articles.length === 0) {
+        html += `<div class="empty-state">
+                    <h3>No articles published yet.</h3>
+                    <p>Check back soon for verified software discoveries.</p>
+                 </div>`;
         mainContent.innerHTML = html;
         return;
     }
 
-    const totalPages = Math.ceil(filteredArticles.length / POSTS_PER_PAGE);
-    const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
-    const paginated = filteredArticles.slice(startIndex, startIndex + POSTS_PER_PAGE);
-
     html += `<div class="article-grid">`;
-    paginated.forEach(art => {
+    articles.forEach(art => {
         html += `
             <article class="article-card">
                 <div class="card-image-wrap">
-                    <span class="category-badge">${art.category}</span>
-                    <a href="#/post/${art.slug}" aria-label="Read ${art.title}">
-                        <img src="${art.image}" alt="${art.title}" loading="lazy">
+                    <a href="#/post/${art.slug}">
+                        <img src="${art.image_url || 'default.jpg'}" alt="${art.image_alt || art.title}">
                     </a>
                 </div>
                 <div class="card-content">
-                    <h2 class="card-title"><a href="#/post/${art.slug}">${art.title}</a></h2>
-                    <p class="card-excerpt">${art.excerpt}</p>
+                    <h2 class="card-title"><a href="#/post/${art.slug}">${DOMPurify.sanitize(art.title)}</a></h2>
+                    <p class="card-excerpt">${DOMPurify.sanitize(art.excerpt || '')}</p>
                     <div class="card-meta">
-                        <span>${new Date(art.date).toLocaleDateString()}</span>
-                        <a href="#/post/${art.slug}" class="read-more">Read More →</a>
+                        <span>📅 ${new Date(art.published_at).toLocaleDateString()}</span>
+                        <a href="#/post/${art.slug}">Read More →</a>
                     </div>
                 </div>
             </article>
         `;
     });
     html += `</div>`;
-
-    // Pagination
-    if (totalPages > 1) {
-        html += `<div class="pagination">`;
-        for (let i = 1; i <= totalPages; i++) {
-            html += `<button class="btn ${i === currentPage ? '' : 'btn-outline'}" onclick="changePage(${i})">${i}</button>`;
-        }
-        html += `</div>`;
-    }
-
     mainContent.innerHTML = html;
 }
 
-function changePage(page) {
-    currentPage = page;
-    handleRoute();
-}
+async function renderPost(slug) {
+    mainContent.innerHTML = '<p>Loading article...</p>';
+    const { data, error } = await supabase
+        .from('articles')
+        .select('*, categories(name)')
+        .eq('slug', slug)
+        .eq('status', 'published')
+        .single();
 
-function renderHome() {
-    updateMeta("Home", "Discover premium software, open-source tools, and deals.", "");
-    injectJSONLD({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Linkdit",
-        "url": "https://linkdit.example.com/"
-    });
-    
-    const published = articles.filter(a => a.published).sort((a,b) => new Date(b.date) - new Date(a.date));
-    renderArticleList(published, "Latest Articles");
-}
-
-function renderCategory(category) {
-    updateMeta(`${category} Software`, `Browse our latest ${category} articles and finds.`, `category/${category}`);
-    currentPage = 1; // reset on new view
-    const filtered = articles.filter(a => a.published && a.category === category).sort((a,b) => new Date(b.date) - new Date(a.date));
-    renderArticleList(filtered, `${category}`);
-}
-
-function renderSearch(query) {
-    updateMeta(`Search results for "${query}"`, `Search results for ${query} on Linkdit.`, `search?q=${query}`);
-    currentPage = 1;
-    const q = query.toLowerCase();
-    const filtered = articles.filter(a => a.published && (a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q) || a.content.toLowerCase().includes(q)));
-    renderArticleList(filtered, `Search Results for "${query}"`);
-}
-
-function renderPost(slug) {
-    const post = articles.find(a => a.slug === slug);
-    if (!post) {
-        mainContent.innerHTML = `<h1>404 - Article Not Found</h1><p>The article you are looking for does not exist.</p>`;
+    if (error || !data) {
+        mainContent.innerHTML = `<div class="empty-state"><h3>404 - Not Found</h3><p>The article does not exist or has been removed.</p></div>`;
         return;
     }
 
-    updateMeta(post.title, post.excerpt, `post/${slug}`);
-    document.getElementById('og-image').setAttribute("content", post.image);
-    
-    injectJSONLD({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.title,
-        "image": post.image,
-        "datePublished": post.date,
-        "description": post.excerpt
-    });
-
     let dealHtml = '';
-    if (post.category === 'Deals') {
+    if (data.article_type === 'Deal') {
+        const isExpired = data.deal_expiry && new Date(data.deal_expiry) < new Date();
         dealHtml = `
-            <div class="deal-box">
-                <h3>Deal Details</h3>
+            <div class="deal-box ${isExpired ? 'expired' : ''}">
+                <h3>Deal Details ${isExpired ? '<span class="status-badge badge-expired">Expired</span>' : '<span class="status-badge badge-active">Active</span>'}</h3>
                 <ul>
-                    <li><strong>Status:</strong> ${post.isIllustrative ? '<span class="deal-disclaimer">Illustrative Sample Deal (Not Verified)</span>' : 'Verified'}</li>
-                    <li><strong>Source:</strong> <a href="${post.dealSourceUrl || '#'}" target="_blank" rel="noopener nofollow">Official Offer Link</a></li>
-                    <li><strong>Validity:</strong> ${post.dealStart || 'N/A'} to ${post.dealExpiry || 'N/A'}</li>
-                    <li><strong>Platforms:</strong> ${post.dealPlatforms || 'N/A'}</li>
-                    <li><strong>Inclusions:</strong> ${post.dealInclusions || 'N/A'}</li>
-                    <li><strong>Limitations:</strong> ${post.dealLimitations || 'N/A'}</li>
+                    <li><strong>Status:</strong> ${data.deal_is_verified ? 'Verified on ' + new Date(data.deal_verification_date).toLocaleDateString() : 'Unverified User Submission'}</li>
+                    <li><strong>Source:</strong> <a href="${data.deal_source_url}" target="_blank" rel="noopener nofollow">Official Offer Link</a></li>
+                    <li><strong>Validity:</strong> ${data.deal_start ? new Date(data.deal_start).toLocaleDateString() : 'Unknown'} to ${data.deal_expiry ? new Date(data.deal_expiry).toLocaleDateString() : 'Unknown'}</li>
+                    <li><strong>Platforms:</strong> ${data.deal_platforms || 'N/A'}</li>
                 </ul>
-                <p class="muted text-sm">Last verified on: ${post.dealVerificationDate || 'N/A'}</p>
+                ${data.deal_limitations ? `<p class="text-sm muted"><strong>Limitations:</strong> ${DOMPurify.sanitize(data.deal_limitations)}</p>` : ''}
             </div>
         `;
     }
 
-    const tagsHtml = post.tags ? post.tags.map(t => `<span class="tag">#${t}</span>`).join('') : '';
-
+    // Sanitize content via DOMPurify to prevent XSS
+    const safeContent = DOMPurify.sanitize(data.content);
+    
     mainContent.innerHTML = `
         <article class="single-post">
             <header class="single-post-header">
-                <span class="category-badge" style="position:static; display:inline-block; margin-bottom:15px;">${post.category}</span>
-                <h1 class="single-post-title">${post.title}</h1>
+                <span class="category-badge" style="position:static; display:inline-block; margin-bottom:15px;">${data.categories?.name || 'Uncategorized'}</span>
+                <h1 class="single-post-title">${DOMPurify.sanitize(data.title)}</h1>
                 <div class="single-post-meta">
-                    <span>📅 ${new Date(post.date).toLocaleDateString()}</span>
+                    <span>📅 ${new Date(data.published_at).toLocaleDateString()}</span>
+                    <span>✍️ ${DOMPurify.sanitize(data.author || 'Admin')}</span>
                 </div>
             </header>
-            <img src="${post.image}" alt="${post.title}" class="single-post-image">
+            ${data.image_url ? `<img src="${data.image_url}" alt="${data.image_alt || ''}" class="single-post-image">` : ''}
             <div class="single-post-content">
-                ${post.content}
+                ${safeContent}
                 ${dealHtml}
-            </div>
-            <div class="tags">
-                ${tagsHtml}
             </div>
         </article>
     `;
 }
 
-// Static Pages
-const staticPages = {
-    'about': { title: 'About Linkdit', content: '<p>Linkdit is a premium software discovery blog dedicated to helping creators, developers, and businesses find the perfect tools. We curate open-source alternatives, deeply review industry-standard software, and hunt down verified lifetime deals.</p>' },
-    'contact': { title: 'Contact Us', content: '<p>Got a software suggestion or a deal tip? Reach out to us.</p><form id="contact-form"><div class="form-group"><label>Name</label><input type="text" class="form-control" required></div><div class="form-group"><label>Email</label><input type="email" class="form-control" required></div><div class="form-group"><label>Message</label><textarea class="form-control" rows="5" required></textarea></div><button type="submit" class="btn">Send Message</button></form><p id="contact-msg" class="form-msg"></p>' },
-    'privacy': { title: 'Privacy Policy', content: '<p>Your privacy is important to us. We do not track you unnecessarily. We use local storage for themes and settings. We serve ads through AdSense which may use cookies to personalize content.</p>' },
-    'terms': { title: 'Terms of Service', content: '<p>By using Linkdit, you agree to our terms. Content is for informational purposes. Deals and prices are subject to change by the respective software vendors.</p>' },
-    'disclaimer': { title: 'Disclaimer', content: '<p>Information provided on Linkdit is "as is". We make no warranties regarding the accuracy of third-party software details. Deal validations are accurate as of the stated verification date.</p>' },
-    'affiliate': { title: 'Affiliate Disclosure', content: '<p>Some links on this site may be affiliate links. If you purchase through them, we may earn a small commission at no extra cost to you. This helps keep Linkdit running.</p>' }
-};
-
-function renderStaticPage(pageSlug) {
-    const page = staticPages[pageSlug];
-    if (!page) {
-        mainContent.innerHTML = `<h1>404 - Page Not Found</h1>`;
-        return;
-    }
-    updateMeta(page.title, `Read the ${page.title} for Linkdit.`, pageSlug);
-    mainContent.innerHTML = `<div class="page-header"><h1 style="font-size: 2rem;">${page.title}</h1></div><div class="single-post-content">${page.content}</div>`;
-    
-    // Attach fake submit handler if contact page
-    if(pageSlug === 'contact') {
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('contact-msg').textContent = "Thank you for reaching out! We will get back to you soon.";
-            e.target.reset();
-        });
-    }
-}
-
-// Sidebar Popular Posts
-function renderSidebar() {
-    const list = document.getElementById('popular-posts-list');
-    const popular = articles.filter(a => a.published).sort((a,b) => b.popularity - a.popularity).slice(0, 5);
-    
-    list.innerHTML = popular.map(p => `
-        <li>
-            <a href="#/post/${p.slug}">${p.title}</a>
-            <span class="text-sm muted">${p.category}</span>
-        </li>
-    `).join('');
-}
-
-// --- 5. ADMIN PANEL ---
-function renderAdmin() {
-    updateMeta("Admin Dashboard", "Manage Linkdit Articles", "admin");
+async function renderPublicSidebar() {
+    const { data: cats } = await supabase.from('categories').select('*');
     
     let html = `
-        <div class="page-header admin-header">
-            <h1 style="font-size: 2rem;">Admin Dashboard</h1>
-            <div class="admin-actions">
-                <button class="btn" onclick="openAdminModal()">+ New Article</button>
-                <button class="btn btn-outline" onclick="resetDemoData()" style="border-color: var(--danger); color: var(--danger);">Reset Demo Data</button>
-            </div>
+        <div class="widget">
+            <h3>About Linkdit</h3>
+            <p>Your destination for verified software reviews and deals.</p>
         </div>
-        
-        <div style="background: rgba(239,68,68,0.1); border-left: 4px solid var(--danger); padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-            <strong>Note:</strong> This is a local demo admin panel stored in your browser's LocalStorage. It does not possess secure multi-user authentication, nor does it connect to a shared production database. Do not use this configuration to protect real production data.
+        <div class="widget">
+            <h3>Categories</h3>
+            <ul class="category-list">
+                ${(cats || []).map(c => `<li><a href="#/category/${c.name}">${c.name}</a></li>`).join('')}
+            </ul>
         </div>
-
-        <div style="overflow-x:auto;">
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
     `;
+    publicSidebar.innerHTML = html;
+}
 
-    articles.forEach(art => {
-        html += `
-            <tr>
-                <td><strong>${art.title}</strong><br><span class="text-sm muted">/${art.slug}</span></td>
-                <td>${art.category}</td>
-                <td>${art.date}</td>
-                <td>${art.published ? '<span style="color:var(--success)">Published</span>' : '<span style="color:var(--danger)">Draft</span>'}</td>
-                <td>
-                    <button class="btn text-sm" onclick="editArticle('${art.id}')">Edit</button>
-                    <button class="btn btn-outline text-sm" style="border-color: var(--danger); color: var(--danger);" onclick="deleteArticle('${art.id}')">Delete</button>
-                </td>
-            </tr>
-        `;
-    });
+function renderStaticPage(page) {
+    const content = {
+        'privacy': 'Privacy Policy content here.',
+        'terms': 'Terms of Service content here.',
+        'about': 'About Linkdit...'
+    };
+    mainContent.innerHTML = `<div class="page-header"><h1>${page.toUpperCase()}</h1></div><div class="single-post-content">${content[page] || 'Page not found.'}</div>`;
+}
 
-    html += `</tbody></table></div>`;
+// --- 4. SECURE ADMIN LOGIN ---
+function renderLogin() {
+    publicHeader.style.display = 'none';
+    publicFooter.style.display = 'none';
+    publicSidebar.innerHTML = '';
+    appContainer.style.display = 'block';
 
-    // Modal Template
-    html += `
-        <div class="modal" id="admin-modal">
-            <div class="modal-content">
-                <button class="close-modal" onclick="closeAdminModal()">&times;</button>
-                <h2 id="modal-title" style="margin-bottom:20px;">Add New Article</h2>
-                <form id="admin-form">
-                    <input type="hidden" id="art-id">
-                    
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" id="art-title" class="form-control" required>
+    mainContent.innerHTML = `
+        <div class="login-wrapper">
+            <div class="login-box">
+                <a href="#/" class="logo" style="margin-bottom: 20px; display:block;">Link<span>dit</span>.</a>
+                <h2>Admin Secure Login</h2>
+                <form id="login-form">
+                    <div class="form-group" style="text-align:left;">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" class="form-control" required autocomplete="email">
                     </div>
-                    
-                    <div class="form-group">
-                        <label>Slug</label>
-                        <input type="text" id="art-slug" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Category</label>
-                        <select id="art-category" class="form-control" required onchange="toggleDealFields()">
-                            <option value="Deals">Deals</option>
-                            <option value="Open Source">Open Source</option>
-                            <option value="Reviews">Reviews</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Image URL</label>
-                        <input type="url" id="art-image" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Excerpt</label>
-                        <textarea id="art-excerpt" class="form-control" rows="3" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Content (HTML)</label>
-                        <textarea id="art-content" class="form-control" rows="8" required></textarea>
-                    </div>
-
-                    <!-- Deal Specific Fields -->
-                    <div id="deal-fields" style="display:none; background: rgba(0,0,0,0.1); padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-                        <h3 style="margin-bottom:10px; font-size:1.1rem; color:var(--accent);">Deal Information</h3>
-                        <div class="form-group"><label>Source URL</label><input type="url" id="d-url" class="form-control"></div>
-                        <div style="display:flex; gap:10px;">
-                            <div class="form-group" style="flex:1"><label>Start Date</label><input type="date" id="d-start" class="form-control"></div>
-                            <div class="form-group" style="flex:1"><label>Expiry Date</label><input type="date" id="d-expiry" class="form-control"></div>
-                        </div>
-                        <div class="form-group"><label>Platforms</label><input type="text" id="d-platforms" class="form-control"></div>
-                        <div class="form-group"><label>Inclusions</label><input type="text" id="d-inclusions" class="form-control"></div>
-                        <div class="form-group"><label>Limitations</label><input type="text" id="d-limitations" class="form-control"></div>
-                        <div class="form-group">
-                            <label style="display:flex; align-items:center; gap:10px;">
-                                <input type="checkbox" id="d-illustrative"> Mark as Illustrative Sample Deal (Unverified)
-                            </label>
+                    <div class="form-group" style="text-align:left;">
+                        <label>Password</label>
+                        <div class="password-wrap">
+                            <input type="password" id="login-pass" class="form-control" required autocomplete="current-password">
+                            <button type="button" onclick="togglePass()">Show</button>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label>Tags (comma separated)</label>
-                        <input type="text" id="art-tags" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="display:flex; align-items:center; gap:10px;">
-                            <input type="checkbox" id="art-published" checked> Published
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn" style="width:100%">Save Article</button>
+                    <p id="login-error" class="error-msg"></p>
+                    <button type="submit" class="btn" style="width:100%; margin-top:10px;">Secure Sign In</button>
                 </form>
             </div>
         </div>
     `;
 
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-pass').value;
+        const btn = e.target.querySelector('button');
+        const err = document.getElementById('login-error');
+        
+        btn.textContent = "Authenticating...";
+        btn.disabled = true;
+        
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        
+        if (error) {
+            err.textContent = "Invalid credentials or unauthorized.";
+            err.style.display = 'block';
+            btn.textContent = "Secure Sign In";
+            btn.disabled = false;
+        } else {
+            // Verify if user is in admin_roles table
+            const { data: roleData } = await supabase.from('admin_roles').select('user_id').eq('user_id', data.user.id).single();
+            if (!roleData) {
+                await supabase.auth.signOut();
+                err.textContent = "Your account does not have administrator privileges.";
+                err.style.display = 'block';
+                btn.textContent = "Secure Sign In";
+                btn.disabled = false;
+                return;
+            }
+            isAdmin = true;
+            window.location.hash = '#/admin/dashboard';
+        }
+    });
+}
+
+window.togglePass = function() {
+    const p = document.getElementById('login-pass');
+    p.type = p.type === 'password' ? 'text' : 'password';
+}
+
+async function handleLogout() {
+    await supabase.auth.signOut();
+    isAdmin = false;
+    window.location.hash = '#/admin/login';
+}
+
+// --- 5. SECURE ADMIN DASHBOARD ---
+function renderAdminDashboard(view, param) {
+    publicHeader.style.display = 'none';
+    publicFooter.style.display = 'none';
+    appContainer.style.display = 'block';
+    appContainer.style.margin = '0';
+    appContainer.style.width = '100%';
+    appContainer.style.maxWidth = '100%';
+
+    let html = `
+        <div id="admin-layout">
+            <aside class="admin-sidebar">
+                <a href="#/" class="logo">Link<span>dit</span>. <span style="font-size:0.8rem;color:var(--text-muted)">CMS</span></a>
+                <nav class="admin-nav">
+                    <a href="#/admin/dashboard" class="${view === 'dashboard' ? 'active' : ''}">📊 Overview</a>
+                    <a href="#/admin/articles" class="${view === 'articles' ? 'active' : ''}">📝 All Articles</a>
+                    <a href="#/admin/editor" class="${view === 'editor' ? 'active' : ''}">➕ Add New</a>
+                    <a href="#/admin/categories" class="${view === 'categories' ? 'active' : ''}">🏷️ Categories</a>
+                    <a href="#/" target="_blank">🌐 View Site</a>
+                    <a href="#" onclick="handleLogout()" style="margin-top:auto; color:var(--danger)">🚪 Logout</a>
+                </nav>
+            </aside>
+            <main class="admin-content" id="admin-content">
+                Loading...
+            </main>
+        </div>
+    `;
     mainContent.innerHTML = html;
 
-    document.getElementById('admin-form').addEventListener('submit', saveAdminForm);
+    const contentArea = document.getElementById('admin-content');
+
+    if (view === 'dashboard') loadAdminOverview(contentArea);
+    if (view === 'articles') loadAdminArticles(contentArea);
+    if (view === 'editor') loadAdminEditor(contentArea, param);
+    if (view === 'categories') loadAdminCategories(contentArea);
 }
 
-window.toggleDealFields = function() {
-    const cat = document.getElementById('art-category').value;
-    document.getElementById('deal-fields').style.display = cat === 'Deals' ? 'block' : 'none';
-};
+async function loadAdminOverview(container) {
+    // Real counts driven by RLS (Admins can read all)
+    const [{ count: totalArts }, { count: pubArts }, { count: cats }] = await Promise.all([
+        supabase.from('articles').select('*', { count: 'exact', head: true }),
+        supabase.from('articles').select('*', { count: 'exact', head: true }).eq('status', 'published'),
+        supabase.from('categories').select('*', { count: 'exact', head: true })
+    ]);
 
-window.openAdminModal = function() {
-    document.getElementById('admin-form').reset();
-    document.getElementById('art-id').value = '';
-    document.getElementById('modal-title').textContent = 'Add New Article';
-    document.getElementById('admin-modal').classList.add('active');
-    toggleDealFields();
-};
+    container.innerHTML = `
+        <div class="admin-header">
+            <h2>Dashboard Overview</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card"><h4>Total Articles</h4><div class="value">${totalArts || 0}</div></div>
+            <div class="stat-card"><h4>Published</h4><div class="value">${pubArts || 0}</div></div>
+            <div class="stat-card"><h4>Categories</h4><div class="value">${cats || 0}</div></div>
+        </div>
+        <div class="empty-state">
+            <p>Welcome to the secure Linkdit CMS. Select an option from the sidebar to manage content.</p>
+        </div>
+    `;
+}
 
-window.closeAdminModal = function() {
-    document.getElementById('admin-modal').classList.remove('active');
-};
-
-window.editArticle = function(id) {
-    const art = articles.find(a => a.id === id);
-    if(!art) return;
+async function loadAdminArticles(container) {
+    const { data, error } = await supabase.from('articles').select('id, title, slug, status, created_at, article_type').order('created_at', { ascending: false });
     
-    document.getElementById('art-id').value = art.id;
-    document.getElementById('art-title').value = art.title;
-    document.getElementById('art-slug').value = art.slug;
-    document.getElementById('art-category').value = art.category;
-    document.getElementById('art-image').value = art.image;
-    document.getElementById('art-excerpt').value = art.excerpt;
-    document.getElementById('art-content').value = art.content;
-    document.getElementById('art-tags').value = art.tags ? art.tags.join(', ') : '';
-    document.getElementById('art-published').checked = art.published;
-
-    if(art.category === 'Deals') {
-        document.getElementById('d-url').value = art.dealSourceUrl || '';
-        document.getElementById('d-start').value = art.dealStart || '';
-        document.getElementById('d-expiry').value = art.dealExpiry || '';
-        document.getElementById('d-platforms').value = art.dealPlatforms || '';
-        document.getElementById('d-inclusions').value = art.dealInclusions || '';
-        document.getElementById('d-limitations').value = art.dealLimitations || '';
-        document.getElementById('d-illustrative').checked = art.isIllustrative || false;
-    }
-
-    document.getElementById('modal-title').textContent = 'Edit Article';
-    toggleDealFields();
-    document.getElementById('admin-modal').classList.add('active');
-};
-
-window.deleteArticle = function(id) {
-    if(confirm("Delete this article?")) {
-        articles = articles.filter(a => a.id !== id);
-        saveArticles();
-        renderAdmin();
-    }
-};
-
-function saveAdminForm(e) {
-    e.preventDefault();
-    const id = document.getElementById('art-id').value || Date.now().toString();
-    const category = document.getElementById('art-category').value;
-    
-    const newArt = {
-        id: id,
-        title: document.getElementById('art-title').value,
-        slug: document.getElementById('art-slug').value.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-        category: category,
-        image: document.getElementById('art-image').value,
-        excerpt: document.getElementById('art-excerpt').value,
-        content: document.getElementById('art-content').value,
-        tags: document.getElementById('art-tags').value.split(',').map(t => t.trim()).filter(Boolean),
-        published: document.getElementById('art-published').checked,
-        date: new Date().toISOString().split('T')[0],
-        popularity: 0 // default for new
-    };
-
-    if(category === 'Deals') {
-        newArt.dealSourceUrl = document.getElementById('d-url').value;
-        newArt.dealStart = document.getElementById('d-start').value;
-        newArt.dealExpiry = document.getElementById('d-expiry').value;
-        newArt.dealPlatforms = document.getElementById('d-platforms').value;
-        newArt.dealInclusions = document.getElementById('d-inclusions').value;
-        newArt.dealLimitations = document.getElementById('d-limitations').value;
-        newArt.isIllustrative = document.getElementById('d-illustrative').checked;
-        newArt.dealVerificationDate = new Date().toISOString().split('T')[0];
-    }
-
-    const existingIndex = articles.findIndex(a => a.id === id);
-    if(existingIndex > -1) {
-        // preserve original date and popularity if editing
-        newArt.date = articles[existingIndex].date;
-        newArt.popularity = articles[existingIndex].popularity;
-        articles[existingIndex] = newArt;
+    let rows = '';
+    if (data && data.length > 0) {
+        rows = data.map(a => `
+            <tr>
+                <td><strong>${DOMPurify.sanitize(a.title)}</strong><br><span class="text-sm muted">/${a.slug}</span></td>
+                <td>${a.article_type}</td>
+                <td>${a.status === 'published' ? '<span class="status-badge badge-active">Published</span>' : '<span class="status-badge">Draft</span>'}</td>
+                <td>${new Date(a.created_at).toLocaleDateString()}</td>
+                <td class="admin-actions">
+                    <button class="btn btn-outline" onclick="window.location.hash='#/admin/editor/${a.id}'">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteArticle('${a.id}')">Delete</button>
+                </td>
+            </tr>
+        `).join('');
     } else {
-        articles.push(newArt);
+        rows = `<tr><td colspan="5" style="text-align:center;">No articles found.</td></tr>`;
     }
 
-    saveArticles();
-    closeAdminModal();
-    renderAdmin();
+    container.innerHTML = `
+        <div class="admin-header">
+            <h2>Manage Articles</h2>
+            <a href="#/admin/editor" class="btn">+ New Article</a>
+        </div>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead><tr><th>Title & Slug</th><th>Type</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+    `;
 }
 
+// --- 6. ARTICLE EDITOR (With Real Validations) ---
+async function loadAdminEditor(container, id) {
+    const { data: cats } = await supabase.from('categories').select('id, name');
+    let article = {};
+    if (id) {
+        const { data } = await supabase.from('articles').select('*').eq('id', id).single();
+        if (data) article = data;
+    }
 
-// --- 6. UI INTERACTIONS ---
+    const catOptions = (cats || []).map(c => `<option value="${c.id}" ${article.category_id === c.id ? 'selected' : ''}>${c.name}</option>`).join('');
 
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
+    container.innerHTML = `
+        <div class="admin-header">
+            <h2>${id ? 'Edit Article' : 'Create New Article'}</h2>
+        </div>
+        <form id="editor-form" class="editor-grid">
+            <div class="editor-main">
+                <div class="form-group">
+                    <label>Article Title *</label>
+                    <input type="text" id="ed-title" class="form-control" required value="${article.title || ''}">
+                </div>
+                <div class="form-group">
+                    <label>URL Slug *</label>
+                    <input type="text" id="ed-slug" class="form-control" required pattern="[a-z0-9-]+" title="Only lowercase letters, numbers, and hyphens" value="${article.slug || ''}">
+                </div>
+                <div class="form-group">
+                    <label>Excerpt</label>
+                    <textarea id="ed-excerpt" class="form-control" rows="3">${article.excerpt || ''}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Full Content (HTML) *</label>
+                    <textarea id="ed-content" class="form-control" rows="15" required>${article.content || ''}</textarea>
+                </div>
 
+                <!-- Deal Specifics -->
+                <div id="ed-deal-section" class="deal-fields ${article.article_type === 'Deal' ? 'active' : ''}">
+                    <h3>Deal Properties</h3>
+                    <div class="form-group">
+                        <label>Official Source URL</label>
+                        <input type="url" id="ed-d-url" class="form-control" value="${article.deal_source_url || ''}">
+                    </div>
+                    <div style="display:flex; gap:20px;">
+                        <div class="form-group" style="flex:1"><label>Start Date</label><input type="date" id="ed-d-start" class="form-control" value="${article.deal_start || ''}"></div>
+                        <div class="form-group" style="flex:1"><label>Expiry Date</label><input type="date" id="ed-d-expiry" class="form-control" value="${article.deal_expiry || ''}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Limitations & Conditions</label>
+                        <input type="text" id="ed-d-limit" class="form-control" value="${article.deal_limitations || ''}">
+                    </div>
+                    <div class="form-group" style="background: rgba(0,0,0,0.2); padding:15px; border-radius:5px;">
+                        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                            <input type="checkbox" id="ed-d-verified" ${article.deal_is_verified ? 'checked' : ''}> 
+                            <strong>Mark Deal as Verified</strong> (Requires manual check)
+                        </label>
+                        <p class="text-sm muted" style="margin-top:5px;">Never auto-verify placeholder deals. Verify directly with vendor.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="editor-sidebar">
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="ed-status" class="form-control">
+                        <option value="draft" ${article.status === 'draft' ? 'selected' : ''}>Draft</option>
+                        <option value="published" ${article.status === 'published' ? 'selected' : ''}>Published</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Article Type</label>
+                    <select id="ed-type" class="form-control" onchange="document.getElementById('ed-deal-section').classList.toggle('active', this.value === 'Deal')">
+                        <option value="Standard" ${article.article_type !== 'Deal' ? 'selected' : ''}>Standard Post</option>
+                        <option value="Deal" ${article.article_type === 'Deal' ? 'selected' : ''}>Software Deal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="ed-category" class="form-control">
+                        <option value="">-- Select --</option>
+                        ${catOptions}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Featured Image URL</label>
+                    <input type="url" id="ed-image" class="form-control" value="${article.image_url || ''}">
+                </div>
+                <hr style="border-color:var(--border)">
+                <button type="submit" class="btn">Save Article</button>
+                <p id="ed-msg" class="form-msg"></p>
+            </div>
+        </form>
+    `;
+
+    document.getElementById('editor-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Security: Prevent fake domain URLs for deals
+        const dUrl = document.getElementById('ed-d-url').value;
+        if (dUrl && dUrl.includes('example.com')) {
+            alert("Security Policy: Cannot publish deals pointing to placeholder domains (example.com). Use real verified URLs.");
+            return;
+        }
+
+        const payload = {
+            title: document.getElementById('ed-title').value,
+            slug: document.getElementById('ed-slug').value,
+            excerpt: document.getElementById('ed-excerpt').value,
+            content: document.getElementById('ed-content').value,
+            status: document.getElementById('ed-status').value,
+            article_type: document.getElementById('ed-type').value,
+            category_id: document.getElementById('ed-category').value || null,
+            image_url: document.getElementById('ed-image').value,
+            published_at: document.getElementById('ed-status').value === 'published' ? (article.published_at || new Date().toISOString()) : null,
+            
+            deal_source_url: dUrl,
+            deal_start: document.getElementById('ed-d-start').value || null,
+            deal_expiry: document.getElementById('ed-d-expiry').value || null,
+            deal_limitations: document.getElementById('ed-d-limit').value,
+            deal_is_verified: document.getElementById('ed-d-verified') ? document.getElementById('ed-d-verified').checked : false,
+            deal_verification_date: document.getElementById('ed-d-verified') && document.getElementById('ed-d-verified').checked ? new Date().toISOString() : null
+        };
+
+        const msg = document.getElementById('ed-msg');
+        msg.textContent = 'Saving...';
+        
+        let res;
+        if (id) {
+            res = await supabase.from('articles').update(payload).eq('id', id);
+        } else {
+            res = await supabase.from('articles').insert([payload]);
+        }
+
+        if (res.error) {
+            msg.style.color = 'var(--danger)';
+            msg.textContent = `Error: ${res.error.message}`;
+        } else {
+            msg.style.color = 'var(--success)';
+            msg.textContent = 'Saved successfully!';
+            setTimeout(() => window.location.hash = '#/admin/articles', 1000);
+        }
+    });
+}
+
+window.deleteArticle = async function(id) {
+    if (confirm("Are you sure you want to permanently delete this article? This action cannot be undone.")) {
+        const { error } = await supabase.from('articles').delete().eq('id', id);
+        if (error) alert("Error deleting: " + error.message);
+        else handleRoute(); // reload view
+    }
+}
+
+// --- 7. CATEGORY MANAGEMENT ---
+async function loadAdminCategories(container) {
+    const { data, error } = await supabase.from('categories').select('*');
+    
+    const rows = (data || []).map(c => `
+        <tr>
+            <td>${c.name}</td>
+            <td>${c.slug}</td>
+            <td>
+                <button class="btn btn-danger btn-outline" onclick="deleteCategory('${c.id}')">Delete</button>
+            </td>
+        </tr>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="admin-header">
+            <h2>Categories</h2>
+        </div>
+        <div class="editor-main" style="margin-bottom:30px;">
+            <h3>Add Category</h3>
+            <form id="cat-form" style="display:flex; gap:10px; margin-top:15px;">
+                <input type="text" id="cat-name" placeholder="Category Name" class="form-control" required>
+                <input type="text" id="cat-slug" placeholder="slug" class="form-control" required>
+                <button type="submit" class="btn">Add</button>
+            </form>
+        </div>
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead><tr><th>Name</th><th>Slug</th><th>Actions</th></tr></thead>
+                <tbody>${rows || '<tr><td colspan="3">No categories.</td></tr>'}</tbody>
+            </table>
+        </div>
+    `;
+
+    document.getElementById('cat-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+            name: document.getElementById('cat-name').value,
+            slug: document.getElementById('cat-slug').value
+        };
+        const { error } = await supabase.from('categories').insert([payload]);
+        if (error) alert("Error: " + error.message);
+        else handleRoute();
+    });
+}
+
+window.deleteCategory = async function(id) {
+    // RLS and DB Foreign Keys prevent deleting if articles exist
+    if (confirm("Delete this category? Will fail if articles are assigned to it.")) {
+        const { error } = await supabase.from('categories').delete().eq('id', id);
+        if (error) alert("Could not delete. Check if articles are still using this category. " + error.message);
+        else handleRoute();
+    }
+}
+
+// Theme Controls
 function initTheme() {
-    const savedTheme = localStorage.getItem('linkdit_theme');
-    if (savedTheme) {
-        htmlEl.setAttribute('data-theme', savedTheme);
-        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-    }
+    const saved = localStorage.getItem('linkdit_theme') || 'dark';
+    htmlEl.setAttribute('data-theme', saved);
+    if(themeToggle) themeToggle.textContent = saved === 'dark' ? '☀️' : '🌙';
 }
-
-themeToggle.addEventListener('click', () => {
-    const current = htmlEl.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
+if(themeToggle) themeToggle.addEventListener('click', () => {
+    const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     htmlEl.setAttribute('data-theme', next);
     localStorage.setItem('linkdit_theme', next);
     themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const mainNav = document.getElementById('main-nav');
-
-hamburger.addEventListener('click', () => {
-    const isActive = mainNav.classList.toggle('active');
-    hamburger.setAttribute('aria-expanded', isActive);
-});
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-item').forEach(link => {
-    link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-    });
-});
-
-// Search Form
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-
-searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const query = encodeURIComponent(searchInput.value.trim());
-    if (query) {
-        window.location.hash = `#/search?q=${query}`;
-        mainNav.classList.remove('active'); // Close mobile menu if open
-    }
-});
-
-// Newsletter Form Fake Submit
-const newsletterForm = document.getElementById('newsletter-form');
-newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.getElementById('newsletter-msg').textContent = "Thanks for subscribing!";
-    newsletterForm.reset();
-});
-
-// --- 7. INITIALIZATION ---
-window.addEventListener('hashchange', handleRoute);
-window.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    loadArticles();
-    handleRoute();
-});
+// Boot App
+window.addEventListener('DOMContentLoaded', initApp);
